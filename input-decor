@@ -1,0 +1,18 @@
+input binding
+
+app.component.html
+<app-inputtest *ngFor="let super of superarray" [inputdef]="super"></app-inputtest>
+
+app.component.ts
+superarray=[{name:'xx',roll:12}]; 
+
+inputoutput.component.html 
+{{inputdef.name}}
+{{inputdef.roll}}
+
+inputoutput.component.ts 
+ @Input() inputdef:{name:string, roll:number}  //here created defination but no data assigned to inputdef property , to assign data property
+ //to be binded in app componet.html
+
+
+ 
