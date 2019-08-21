@@ -6,7 +6,7 @@
 ##########################################app.component.ts ########################################## 4
 dataArr=[{name:"x"}];
   constructor(){}
-  dataadded(data:{name:string,roll:number}){ //6
+  dataadded(data:{name:string,roll:number}){ //6  // here we should get data of other component so we bind dataadded to event onadddata no7
     this.dataArr.push({
       name:data.name   
     })  
@@ -16,7 +16,7 @@ dataArr=[{name:"x"}];
 <button (click)="clk()">clkk</button>  
 
 ##########################################outputtest.component.ts  ################################# 2
- @Output() onadddata=new EventEmitter<{name:string}>(); //7
+ @Output() onadddata=new EventEmitter<{name:string}>(); //7 //here we are sending of our data to paret comp by output decortor
 name="";
   constructor() { }
   clk(){
