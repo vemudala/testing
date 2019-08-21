@@ -1,7 +1,7 @@
 
 ##########################################app.component.html ########################################## 3
 <app-inputtest *ngFor="let super of dataArr" [inputdef]="super"></app-inputtest> //this selector here used to display html loop data
-<app-outputtest (onadddata)="dataadded($event)"></app-outputtest>  // focus on this 5
+<app-outputtest (onadddata)="dataadded($event)"></app-outputtest>  // focus on this line is //5
 
 ##########################################app.component.ts ########################################## 4
 dataArr=[{name:"x"}];
@@ -16,7 +16,8 @@ dataArr=[{name:"x"}];
 <button (click)="clk()">clkk</button>  
 
 ##########################################outputtest.component.ts  ################################# 2
- @Output() onadddata=new EventEmitter<{name:string}>(); //7 //here we are sending of our data to paret comp by output decortor
+//@output indicates we are passing our own event to out of the componet
+ @Output() onadddata=new EventEmitter<{name:string}>(); //7 creating proptery //v r making propty as event adn passing objectto event ie{} //here we are sending of our data to paret comp by output decortor
 name="";
   constructor() { }
   clk(){
