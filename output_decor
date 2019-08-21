@@ -24,3 +24,7 @@ this.onadddata.emit({
   name:this.name
 })
   }
+  
+  #########################################inputtest.comp.html#########################################
+  
+{{inputdef.name}}
