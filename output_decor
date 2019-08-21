@@ -32,6 +32,7 @@ this.onadddata.emit({
 
 
 readme assignint alias to custom event
- @Output('bpCreated') onadddata=new EventEmitter<{name:string}>();
- <app-outputtest (bpCreated)="dataadded($event)"></app-outputtest> 
- <app-outputtest (onadddata)="dataadded($event)"></app-outputtest>  // focus on this line is //5
+ @Output() onadddata=new EventEmitter<{name:string}>(); // initially like this
+ @Output('bpCreated') onadddata=new EventEmitter<{name:string}>(); //after adding alias @Output('bpCreated') 
+ <app-outputtest (onadddata)="dataadded($event)"></app-outputtest> // initially like this
+ <app-outputtest (bpCreated)="dataadded($event)"></app-outputtest>    //after adding alias
