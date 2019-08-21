@@ -29,3 +29,9 @@ this.onadddata.emit({
   #########################################inputtest.comp.html#########################################
   
 {{inputdef.name}}
+
+
+readme assignint alias to custom event
+ @Output('bpCreated') onadddata=new EventEmitter<{name:string}>();
+ <app-outputtest (bpCreated)="dataadded($event)"></app-outputtest> 
+ <app-outputtest (onadddata)="dataadded($event)"></app-outputtest>  // focus on this line is //5
