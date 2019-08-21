@@ -1,12 +1,15 @@
 input binding
-
+copy this code as it is: and execute
 app.component.html
+clear all data in html and add below line
 <app-inputtest *ngFor="let super of superarray" [inputdef]="super"></app-inputtest>
 
 app.component.ts
+add this below class name
 superarray=[{name:'xx',roll:12}]; 
 
-inputoutput.component.html 
+inputoutput.component.html  
+clear all data in html and add below line
 {{inputdef.name}}
 {{inputdef.roll}}
 
