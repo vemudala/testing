@@ -1,4 +1,6 @@
-
+diff:
+input binding = // here @input sends data from parent to child // data in parent and defination in child
+output binding=// here @output sends data from child to parent //  data(line 7) in child and defination(line 6) in parent 
 ##########################################app.component.html ########################################## 3
 <app-inputtest *ngFor="let super of dataArr" [inputdef]="super"></app-inputtest> //this selector here used to display html loop data
 <app-outputtest (onadddata)="dataadded($event)"></app-outputtest>  // focus on this line is //5
