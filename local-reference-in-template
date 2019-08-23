@@ -1,0 +1,37 @@
+
+html
+//<!-- <input type="text" class="form-control"  [(ngModel)]='newServerName'> -->
+      <input type="text" class="form-control" #lid> 
+      //<button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+      <button class="btn btn-primary" (click)="onAddServer(lid)">Add Server</button> 
+     // <button class="btn btn-primary" (click)="onAddBluprint()">Add Server Blueprint</button>
+      <button class="btn btn-primary" (click)="onAddBluprint(lid)">Add Server Blueprint</button>
+      
+    ts
+export class CockpitComponent implements OnInit {
+  @Output() serverCreated=new EventEmitter<{serverName:string, serverContent:string}>();  //event emiter is obj to emit evnts
+  @Output() blueprintCreated=new EventEmitter<{serverName:string, serverContent:string}>(); 
+  //above propterties are created ie from cockpit decorator in app componet events
+  // newServerName:string=""; //1 removed bcz we are given reference to input not ngmodel binding###
+  newServerContent:string="";
+  constructor() { }
+
+  ngOnInit() {
+  }
+  onAddServer(lid:HTMLInputElement){  //removied and added  onAddServer(){#### and added new reference var parameter
+    this.serverCreated.emit({
+      // serverName:this.newServerName, // here also removed and ref#####
+      serverName:lid.value,
+      serverContent:this.newServerContent
+    }) 
+
+  }
+  onAddBluprint(lid:HTMLInputElement){ //removied and added  onAddBluprint(){###
+    this.blueprintCreated.emit({ 
+      // serverName:this.newServerName, // here also removed and ref######
+      serverName:lid.value,
+      serverContent:this.newServerContent
+    }) 
+  }
+}  
+      
