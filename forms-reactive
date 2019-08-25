@@ -1,3 +1,6 @@
+reactive forms everting is given from component.ts ex., if u want to add required, pattern we define in comp.ts
+ex., this.userName = new FormControl('', [Validators.required,Validators.pattern);
+
 app.module.ts
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms' 
