@@ -1,0 +1,39 @@
+ AFTER SUBMIT SHOW REQUIRED FIELDS   // HERE IT WORKS BASED ON FORM REFERENCE NAME
+
+<div class="container">
+    <div class="card ">
+        <div class="card-header bg-primary">Tiles</div>
+         <div class="card-body o">
+            <form name="login" #loginForm="ngForm"> 
+            <input type="text" [(ngModel)]='username' name="username" class="form-control" required #uname="ngModel">
+             <div *ngIf="!uname.valid && loginForm.submitted" class="alert alert-danger">
+                    username required
+             </div>
+<input type="password" [(ngModel)]='password' name="password" class="form-control" required #pass="ngModel" >
+<div class="alert alert-danger" *ngIf="!pass.valid && loginForm.submitted"> required password</div>
+<button  class="btn btn-primary" (click)="login()" >Login</button>
+
+<!-- <div class="alert alert-danger" *ngIf="errmsg"> please enter username..</div> -->
+            </form>
+</div></div></div>
+
+
+SHOW REQUIRED FIELDS WHEN USER COMES OOUT OF INPUT //HERE WORKS BASED ON INPUT REFERENCE NAME
+ 
+
+<div class="container">
+    <div class="card ">
+        <div class="card-header bg-primary">Tiles</div>
+         <div class="card-body o">
+            <form name="login" #loginForm="ngForm"> 
+            <input type="text" [(ngModel)]='username' name="username" class="form-control" required #uname="ngModel">
+             <div *ngIf="!uname.valid && uname.dirty" class="alert alert-danger">
+                    username required
+             </div>
+<input type="password" [(ngModel)]='password' name="password" class="form-control" #pass="ngModel" required>
+<div class="text text-danger" *ngIf="!pass.valid && pass.dirty"> required password</div>
+<button  class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+
+<div class="alert alert-danger" *ngIf="errmsg"> please enter username..</div>
+            </form>
+</div></div></div>
