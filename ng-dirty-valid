@@ -25,15 +25,36 @@ SHOW REQUIRED FIELDS WHEN USER COMES OOUT OF INPUT //HERE WORKS BASED ON INPUT R
     <div class="card ">
         <div class="card-header bg-primary">Tiles</div>
          <div class="card-body o">
-            <form name="login" #loginForm="ngForm"> 
+            <form name="login" #loginForm="ngForm">    // HERE FORM REFERENCE CREATED
             <input type="text" [(ngModel)]='username' name="username" class="form-control" required #uname="ngModel">
              <div *ngIf="!uname.valid && uname.dirty" class="alert alert-danger">
                     username required
              </div>
+<input type="password" [(ngModel)]='password' name="password" class="form-control" #pass="ngModel" required> //INP REFERENCE
+<div class="text text-danger" *ngIf="!pass.valid && pass.dirty"> required password</div> // ERROR MESSAGE
+<button  class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>// HERE FORM REFERENCE USED FOR BTN
+
+<div class="alert alert-danger" *ngIf="errmsg"> please enter username..</div>
+            </form>
+</div></div></div>
+
+
+      
+// PATTERN VALID ONLY FOR NUMBERS // SHOW ERROR IF EMPTY NUMBERS REQUIRED // IF USER ENTER ALPHABETS SHOW REQUIRED NUMBERS ONLY
+
+<form name="login" #loginForm="ngForm"> 
+            <input type="text" [(ngModel)]='username' name="username" class="form-control"
+            pattern="^[1-9][0-9][a-z]{5}$"
+            required #uname="ngModel">
+            <div *ngIf="!uname.valid && uname.dirty && uname.errors?.required" class="alert alert-danger">
+                   username required
+            </div>
+            <div *ngIf="!uname.valid && uname.dirty && uname.errors?.pattern" class="alert alert-danger">
+                   username doesnot match with the postal code
+            </div>
 <input type="password" [(ngModel)]='password' name="password" class="form-control" #pass="ngModel" required>
 <div class="text text-danger" *ngIf="!pass.valid && pass.dirty"> required password</div>
 <button  class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
 
 <div class="alert alert-danger" *ngIf="errmsg"> please enter username..</div>
             </form>
-</div></div></div>
