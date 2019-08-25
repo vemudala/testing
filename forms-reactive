@@ -1,0 +1,29 @@
+app.module.ts
+
+import {ReactiveFormsModule,FormsModule} from '@angular/forms' 
+imports: [
+FormsModule, //template driven  forms
+ReactiveFormsModule //reactive forms
+  ],
+  
+register.component.ts
+  
+import { FormControl,Form } from '@angular/forms'; 
+export class RegisterComponent implements OnInit { //REACTIVE FORMS
+userName:FormControl;//REACTIVE CONTROL  
+  constructor() {
+    this.userName=new FormControl();
+    this.userName.setValue('UI Tricks');
+   }
+
+register.component.html
+ <form class="form-group" >
+        <div class="form-group">
+            <label for="User Name"></label>
+        <input type="text" class="form-control" [formControl]="userName">
+        </div>
+    </form>
+
+
+
+
