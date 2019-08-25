@@ -26,7 +26,7 @@ register.component.html
         <input type="text" class="form-control" [formControl]="userName">  <!-- [formControl]="userName" we use this for databinding-->
         </div>
     </form>
-
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 USING FORMGROUP multiple inputs like name email passowrd phone
 ############# app.module.ts #############
