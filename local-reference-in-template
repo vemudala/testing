@@ -34,22 +34,3 @@ export class CockpitComponent implements OnInit {
     }) 
   }
 }  
-      
-// PATTERN VALID ONLY FOR NUMBERS // SHOW ERROR IF EMPTY NUMBERS REQUIRED // IF USER ENTER ALPHABETS SHOW REQUIRED NUMBERS ONLY
-
-<form name="login" #loginForm="ngForm"> 
-            <input type="text" [(ngModel)]='username' name="username" class="form-control"
-            pattern="^[1-9][0-9][a-z]{5}$"
-            required #uname="ngModel">
-            <div *ngIf="!uname.valid && uname.dirty && uname.errors?.required" class="alert alert-danger">
-                   username required
-            </div>
-            <div *ngIf="!uname.valid && uname.dirty && uname.errors?.pattern" class="alert alert-danger">
-                   username doesnot match with the postal code
-            </div>
-<input type="password" [(ngModel)]='password' name="password" class="form-control" #pass="ngModel" required>
-<div class="text text-danger" *ngIf="!pass.valid && pass.dirty"> required password</div>
-<button  class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
-
-<div class="alert alert-danger" *ngIf="errmsg"> please enter username..</div>
-            </form>
